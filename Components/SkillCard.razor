@@ -1,0 +1,29 @@
+<div class="skill-item gradient-border">
+    <i class="devicon-@Skill-plain colored"></i>
+    @GetSkillName()
+</div>
+
+@code{
+
+    [Parameter]
+    public string Skill { get; set; }
+
+    private string GetSkillName()
+    {
+        return Skill switch
+        {
+            "csharp" => "C#",
+            "dotnetcore" => "DotNet",
+            "microsoftsqlserver" => "SQL Server",
+            "html5" => "HTML 5",
+            "javascript" => "JavaScript",
+            "angularjs" => "Angular",
+            "vuejs" => "VueJS",
+            "postgresql" => "PostgreSQL",
+            "mongodb" => "MongoDB",
+            "azure" => "Azure",
+            _ => string.Empty
+            };
+    }
+
+}

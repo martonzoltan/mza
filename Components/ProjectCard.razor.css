@@ -1,0 +1,13 @@
+.img-fluid {
+    background-size: cover;
+}
+
+.card-title {
+    display: inline-block;
+}
+
+.card-title:after {
+    content: '';
+    border-bottom: 1px solid #ff4d5a;
+    display: block;
+}

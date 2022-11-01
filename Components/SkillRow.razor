@@ -1,0 +1,10 @@
+<div class="skill-row d-flex flex-column justify-content-center">
+    @foreach (var skill in Skills)
+    {
+        <SkillCard Skill="@skill"/>
+    }
+</div>
+
+@code{
+    [Parameter] public List<string> Skills { get; set; }
+}

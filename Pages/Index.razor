@@ -1,0 +1,51 @@
+﻿@page "/"
+
+@using PersonalSite.Components
+
+<PageTitle>Mza Solutions</PageTitle>
+
+<section id="about">
+    <SectionTitle Title="About"/>
+    <div class="content row col-12 text-white d-flex">
+        <div class="col-lg-6 col-md-12 p-lg-5 p-md-4 d-flex align-items-center lh-base">
+            I'm a passionate .NET developer, interested in programming, Microsoft technologies and continuous
+            self-improvement. I've started as a web developer in PHP, but quickly made a transition towards the Microsoft technologies
+            and never looked back. Most of my work was done using C#, ASP.NET MVC, ASP.NET Core, SQL, KnockoutJS,
+            Angular, VueJS and lately Blazor. Have vast experience on Azure DevOps including (but not limited to):
+            custom processes, package management system, code review process, continuous integration and
+            continuous deployment to both on premise and Azure.
+        </div>
+        <div class="col-lg-6 col-md-12 p-5 d-flex justify-content-center">
+            <SkillRow Skills="@(new List<string> {"csharp", "dotnetcore", "microsoftsqlserver"})"/>
+            <SkillRow Skills="@(new List<string> {"html5", "javascript", "angularjs", "vuejs"})"/>
+            <SkillRow Skills="@(new List<string> {"postgresql", "mongodb", "azure"})"/>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <SectionTitle Title="Projects"/>
+    <div class="container-fluid text-white">
+        <div class="row">
+            @foreach (var project in _projects)
+            {
+                <ProjectCard Project="@project"/>
+            }
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <SectionTitle Title="Contact"/>
+    <div class="p-3 my-5 col-lg-4 col-md-8 col-10 d-flex justify-content-between">
+        <a href="https://github.com/martonzoltan" target="_blank">
+            <i class="fa-brands fa-github fa-2xl"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/zoltan-marton-dev/" target="_blank">
+            <i class="fa-brands fa-linkedin fa-2xl"></i>
+        </a>
+        <a href="mailto:martonzoltan4@gmail.com" target="_blank">
+            <i class="fa-regular fa-envelope fa-2xl"></i>
+        </a>
+    </div>
+</section>

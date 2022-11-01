@@ -1,0 +1,23 @@
+@inherits LayoutComponentBase
+
+<MudThemeProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<MudLayout Class="bg-color">
+    <div class="header-background">
+        <h1 class="header-title">
+            <img src="images/logo.png" alt="logo" height="60"/>
+            @* Mza Solutions *@
+        </h1>
+    </div>
+    <MudContainer MaxWidth="MaxWidth.Large">
+        @Body
+    </MudContainer>
+    <footer class="footer">
+        <p class="copyright">MZA SOLUTIONS S.R.L ©@DateTime.Now.Year</p>
+    </footer>
+</MudLayout>
+<MudScrollToTop>
+    <MudFab Color="Color.Primary" Icon="@Icons.Filled.ArrowCircleUp" />
+</MudScrollToTop>
