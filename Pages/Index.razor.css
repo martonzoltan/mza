@@ -5,3 +5,9 @@ section {
 .content {
     font-size: 1rem;
 }
+
+#contact a:hover {
+    transition: transform 0.25s;
+    transform: scale(1.1);
+    color: #ff4d5a;
+}

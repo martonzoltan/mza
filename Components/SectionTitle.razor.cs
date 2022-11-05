@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Components;
-
 namespace PersonalSite.Components;
 
 public partial class SectionTitle

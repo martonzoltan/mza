@@ -2,6 +2,14 @@
     background-size: cover;
 }
 
+.card {
+    transition: transform 0.25s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
 .card-title {
     display: inline-block;
 }

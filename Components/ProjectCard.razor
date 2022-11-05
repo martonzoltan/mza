@@ -1,9 +1,10 @@
 @using PersonalSite.Models
-<div class="col-sm-6 d-flex justify-content-center">
+<div class="col-sm-6 d-flex justify-content-center cursor-pointer" @onclick="OpenModal">
     <div class="card mb-3 gradient-border" style="max-width: 540px;">
         <div class="row g-0 h-100">
             <div class="col-md-4">
-                <div style="background-image: url(@Project.Image)" class="img-fluid rounded-start h-100">
+                <div style="background-image: url(@Project.Images.FirstOrDefault())" 
+                     class="img-fluid rounded-start h-100">
                 </div>
             </div>
             <div class="col-md-8">
@@ -15,8 +16,3 @@
         </div>
     </div>
 </div>
-
-@code {
-    [Parameter]
-    public Project Project { get; set; }
-}

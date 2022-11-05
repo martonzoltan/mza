@@ -1,0 +1,50 @@
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h5">
+            @MudDialog.Title
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <div class="row py-5">
+            <div class="col-6">
+                <MudCarousel Class="mud-width-full" Style="height:250px;" ShowArrows="true" ShowBullets="true"
+                             EnableSwipeGesture="@true" AutoCycle="@true" TData="object">
+                    <BulletTemplate Context="selected">
+                        <div Class="mud-button-root mud-icon-button mud-icon-button-color-inherit mud-ripple mud-ripple-icon">
+                            <span class="mud-icon-button-label">
+                                <MudIcon Icon="@(selected ? Icons.Outlined.RadioButtonChecked : Icons.Outlined.RadioButtonUnchecked)" Color="@Color.Dark"/>
+                            </span>
+                        </div>
+                    </BulletTemplate>
+                    <PreviousButtonTemplate>
+                        <div Class="mud-button-root mud-icon-button mud-icon-button-color-inherit mud-ripple mud-ripple-icon">
+                            <span class="mud-icon-button-label">
+                                <MudIcon Class="mud-ripple mud-ripple-icon mud-icon-button-size-medium" Icon="@Icons.Outlined.KeyboardArrowLeft" Color="@Color.Dark"/>
+                            </span>
+                        </div>
+                    </PreviousButtonTemplate>
+                    <NextButtonTemplate>
+                        <div Class="mud-button-root mud-icon-button mud-icon-button-color-inherit mud-ripple mud-ripple-icon">
+                            <span class="mud-icon-button-label">
+                                <MudIcon Class="mud-ripple mud-ripple-icon mud-icon-button-size-medium" Icon="@Icons.Outlined.KeyboardArrowRight" Color="@Color.Dark"/>
+                            </span>
+                        </div>
+                    </NextButtonTemplate>
+                    <ChildContent>
+                        @foreach (var image in Project.Images)
+                        {
+                            <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
+                                <div class="d-flex image-holder" style="height:100%">
+                                    <img src="@image" alt="project-image"/>
+                                </div>
+                            </MudCarouselItem>
+                        }
+                    </ChildContent>
+                </MudCarousel>
+            </div>
+            <div class="col-6">
+                @Project.Description
+            </div>
+        </div>
+    </DialogContent>
+</MudDialog>
