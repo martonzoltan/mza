@@ -5,6 +5,7 @@
 
 .card[b-yzw2jsl7y0] {
     transition: transform 0.25s;
+    white-space: pre-wrap;
 }
 
 .card:hover[b-yzw2jsl7y0] {
@@ -21,12 +22,20 @@
     display: block;
 }
 /* /Components/ProjectModal.razor.rz.scp.css */
+[b-vpouwt66dr] .project-description {
+    white-space: pre-wrap;
+}
+
 [b-vpouwt66dr] section .d-flex.flex-grow-1 {
     width: 100%;
 }
 
-[b-vpouwt66dr] .project-image{
+[b-vpouwt66dr] .project-image {
     background-size: cover;
+}
+
+[b-vpouwt66dr] .techs-container i {
+    font-size: 30px;
 }
 /* /Components/SkillCard.razor.rz.scp.css */
 .skill-item[b-oelhernxdn] {
