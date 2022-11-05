@@ -3,6 +3,14 @@
     background-size: cover;
 }
 
+.card[b-yzw2jsl7y0] {
+    transition: transform 0.25s;
+}
+
+.card:hover[b-yzw2jsl7y0] {
+    transform: scale(1.05);
+}
+
 .card-title[b-yzw2jsl7y0] {
     display: inline-block;
 }
@@ -11,6 +19,10 @@
     content: '';
     border-bottom: 1px solid #ff4d5a;
     display: block;
+}
+/* /Components/ProjectModal.razor.rz.scp.css */
+[b-vpouwt66dr] section .d-flex.flex-grow-1 {
+    width: 100%;
 }
 /* /Components/SkillCard.razor.rz.scp.css */
 .skill-item[b-oelhernxdn] {
@@ -59,6 +71,12 @@ section[b-bl3rrt3nv1] {
 
 .content[b-bl3rrt3nv1] {
     font-size: 1rem;
+}
+
+#contact a:hover[b-bl3rrt3nv1] {
+    transition: transform 0.25s;
+    transform: scale(1.1);
+    color: #ff4d5a;
 }
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-1vlcskuc8v] {
