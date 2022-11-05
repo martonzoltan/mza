@@ -24,6 +24,10 @@
 [b-vpouwt66dr] section .d-flex.flex-grow-1 {
     width: 100%;
 }
+
+[b-vpouwt66dr] .project-image{
+    background-size: cover;
+}
 /* /Components/SkillCard.razor.rz.scp.css */
 .skill-item[b-oelhernxdn] {
     position: relative;
