@@ -1,3 +1,7 @@
 ::deep section .d-flex.flex-grow-1 {
     width: 100%;
 }
+
+::deep .project-image{
+    background-size: cover;
+}
