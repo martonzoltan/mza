@@ -4,6 +4,7 @@
 
 .card {
     transition: transform 0.25s;
+    white-space: pre-wrap;
 }
 
 .card:hover {

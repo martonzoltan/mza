@@ -1,3 +1,4 @@
+@using PersonalSite.Extension
 <MudDialog>
     <TitleContent>
         <MudText Typo="Typo.h5">
@@ -43,8 +44,20 @@
                 </MudCarousel>
             </div>
             <div class="col-lg-6 col-12 pt-lg-0 pt-4">
-                @Project.Description
+                <div class="project-description">
+                    @Project.Description
+                </div>
+                <div class="mt-3 d-flex align-items-center">
+                    <span>Technologies:</span>
+                    <div class="d-flex align-items-center techs-container">
+                        @foreach (var tech in Project.Technologies)
+                        {
+                            <i class="devicon-@tech.GetDescription()-plain p-2"></i>
+                        }
+                    </div>
+                </div>
             </div>
+
         </div>
     </DialogContent>
 </MudDialog>

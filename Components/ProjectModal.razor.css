@@ -1,7 +1,15 @@
+::deep .project-description {
+    white-space: pre-wrap;
+}
+
 ::deep section .d-flex.flex-grow-1 {
     width: 100%;
 }
 
-::deep .project-image{
+::deep .project-image {
     background-size: cover;
+}
+
+::deep .techs-container i {
+    font-size: 30px;
 }

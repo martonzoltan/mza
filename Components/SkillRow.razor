@@ -1,10 +1,11 @@
+@using PersonalSite.Extension
 <div class="skill-row d-flex flex-column justify-content-center">
     @foreach (var skill in Skills)
     {
-        <SkillCard Skill="@skill"/>
+        <SkillCard Skill="@skill.GetDescription()"/>
     }
 </div>
 
 @code{
-    [Parameter] public List<string> Skills { get; set; }
+    [Parameter] public List<Technology> Skills { get; set; }
 }

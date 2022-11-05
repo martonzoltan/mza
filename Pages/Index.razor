@@ -16,9 +16,9 @@
             continuous deployment to both on premise and Azure.
         </div>
         <div class="col-lg-6 col-md-12 p-5 d-flex justify-content-center">
-            <SkillRow Skills="@(new List<string> {"csharp", "dotnetcore", "microsoftsqlserver"})"/>
-            <SkillRow Skills="@(new List<string> {"html5", "javascript", "angularjs", "vuejs"})"/>
-            <SkillRow Skills="@(new List<string> {"postgresql", "mongodb", "azure"})"/>
+            <SkillRow Skills="@(new List<Technology> {Technology.Csharp, Technology.DotNetCore, Technology.Msql})"/>
+            <SkillRow Skills="@(new List<Technology> {Technology.Html5, Technology.JavaScript, Technology.Angular, Technology.VueJs})"/>
+            <SkillRow Skills="@(new List<Technology> {Technology.PostgreSql, Technology.MongoDb, Technology.Azure})"/>
         </div>
     </div>
 </section>
