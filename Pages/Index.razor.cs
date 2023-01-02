@@ -20,7 +20,7 @@ public partial class Index : ComponentBase
             Images = new List<string> {"images/rootines.png", "images/rootines-2.png", "images/rootines-3.png"},
             Technologies = new List<Technology>
             {
-                Technology.Csharp, Technology.DotNetCore, Technology.Sass, Technology.Gulp,
+                Technology.Csharp, Technology.DotNetCore, Technology.Gulp,
                 Technology.MongoDb, Technology.Azure, Technology.Github
             }
         });
