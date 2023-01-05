@@ -17,5 +17,6 @@ public enum Technology
     [Description("css3")] Css,
     [Description("github")] Github,
     [Description("gulp")] Gulp,
-    [Description("sass")] Sass
+    [Description("sass")] Sass,
+    [Description("python")] Python
 }

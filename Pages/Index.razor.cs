@@ -51,6 +51,17 @@ public partial class Index : ComponentBase
         });
         _projects.Add(new Project
         {
+            Title = "Email fixer",
+            Description =
+                "Small proof of concept application that uses OpenAI Chat GPT integration in Python and VueJS." +
+                "It presents the user with a textbox where they can enter their email and the application will " +
+                "call OpenAIs API with a prompt and the email to make it more professional. \r\nIt fixes grammatical errors " +
+                "and reformulates the essence of the email. You can generate multiple versions based on the initial email. ",
+            Images = new List<string> {"images/email-fixer.png"},
+            Technologies = new List<Technology> {Technology.Html5, Technology.Python, Technology.VueJs}
+        });
+        _projects.Add(new Project
+        {
             Title = "Application Tracker",
             Description =
                 "Small Windows application that tracks Excel usage on your computer. Has a reporting side where the user" +
