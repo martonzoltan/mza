@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using PersonalSite.Models;
 
 namespace PersonalSite.Pages;
@@ -6,6 +7,8 @@ namespace PersonalSite.Pages;
 public partial class Index : ComponentBase
 {
     private readonly List<Project> _projects = new();
+    [Parameter] public string ActionToExecute { get; set; }
+    [Inject] private IJSRuntime Js { get; set; }
 
     protected override void OnInitialized()
     {
@@ -70,5 +73,13 @@ public partial class Index : ComponentBase
             Images = new List<string> {"images/tracker.png"},
             Technologies = new List<Technology> {Technology.Csharp}
         });
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!string.IsNullOrWhiteSpace(ActionToExecute))
+        {
+            await Js.InvokeVoidAsync("scrollToElement", ActionToExecute);
+        }
     }
 }

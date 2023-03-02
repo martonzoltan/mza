@@ -1,0 +1,151 @@
+@page "/Blog/1"
+@using PersonalSite.Extension
+@inject NavigationManager NavigationManager
+
+<div class="container col-12 col-xl-7 col-lg-8 col-md-10 my-5 pb-5">
+    <h6 class="cursor-pointer d-flex align-items-center" @onclick='() => NavigationManager.NavigateTo("/Blogs")'>
+        <MudIcon Class="mud-ripple mud-ripple-icon mud-icon-button-size-medium"
+                 Icon="@Icons.Material.Filled.KeyboardBackspace"
+                 Color="@Color.Default" Size="Size.Small"/>
+        <MudText Color="Color.Default">Back</MudText>
+    </h6>
+    <h2 class="title pb-4">
+        @_blog.Title
+    </h2>
+    <h6 class="card-subtitle mb-2 text-muted">Created @_blog.CreatedDateTime.GetRelativeTime() by @_blog.Author</h6>
+    <div class="paragraph">
+        @_blog.Description
+    </div>
+    <div class="paragraph">
+        LINQ is a powerful tool that allows developers to write expressive and efficient queries over a variety
+        of data sources, including collections, XML, and databases. In C# 11, the performance of LINQ has been
+        significantly improved, making it even more powerful and easy to use. There were 2 major updates:
+        <ol>
+            <li>
+                Improved memory usage: C# 11 has reduced memory usage when working with large collections and
+                arrays, which results in faster performance. Many times down to 0.
+            </li>
+            <li>
+                Faster execution: C# 11 has made several changes to the underlying implementation of LINQ,
+                which results in faster execution times for many common operations.
+            </li>
+        </ol>
+    </div>
+
+    <div class="paragraph">
+        In order to verify the performance enhancements touted in C# 11, I turn to a tried and true method:
+        benchmarking. Utilizing the widely-used
+        <a href="https://www.nuget.org/packages/BenchmarkDotNet">BenchmarkDotNet</a> NuGet package, we can
+        accurately measure and compare the performance differences between solutions.
+        It's a powerful tool that provides all the necessary features to conduct a thorough analysis.
+    </div>
+    <div class="paragraph">
+        We can easily target multiple frameworks at the same time:
+    </div>
+    <pre>
+        <code class="language-csharp line-numbers" data-prismjs-copy="Copy">
+            @BenchmarkSetupTargetFrameworks
+        </code>
+    </pre>
+    <div class="paragraph">
+        To increase the scope of my analysis, I have also elected to test using a range of data sets,
+        running the benchmark with 100 and 10.000 numbers.
+    </div>
+    <pre>
+        <code class="language-csharp line-numbers" data-prismjs-copy="Copy">
+            @Variables
+        </code>
+    </pre>
+    <div class="paragraph">
+        We will be testing the the following methods: min, max, average and sum.
+    </div>
+    <pre>
+        <code class="language-csharp line-numbers" data-prismjs-copy="Copy">
+            @Benchmarks
+        </code>
+    </pre>
+
+    <div class="paragraph">
+        Microsoft claims that C# 11 can improve the performance of Linq operations by up to
+        <strong>48x</strong>. Let's see how well founded those claims are and if we can replicated them.
+    </div>
+    <pre>
+        <code class="language-bash line-numbers" data-prismjs-copy="Copy">
+            @Results
+        </code>
+    </pre>
+    <div class="paragraph">
+        The results of our benchmark testing have been truly impressive. Not only has C# 11 demonstrated
+        significant improvements in performance, but it has also achieved this with zero bytes of memory
+        allocation. Our testing has revealed that the <code class="language-csharp">Min()</code>
+        method, in particular, has seen an almost 22x improvement.
+    </div>
+    <div class="paragraph">
+        It is important to note that the results may vary based on a number of factors, such as the specific machine being used for testing.
+        However, the overall improvements are undeniable.
+    </div>
+    <div class="paragraph">
+        Given the success of our testing with arrays, I was excited to explore the performance improvements
+        with lists too:
+    </div>
+    <pre>
+        <code class="language-bash line-numbers" data-prismjs-copy="Copy">
+            @ListResults
+        </code>
+    </pre>
+    <div class="paragraph">
+        The enhancements to list processing are quite substantial and comparable, if not superior, to those
+        seen with arrays. Our benchmarking results demonstrate a significant increase in speed, with up to
+        32-fold improvement, while maintaining zero memory allocation.
+    </div>
+
+    <div class="paragraph">
+        Let's dig in the details a little bit and see how this was achieved in .NET7. Let's take the
+        <code class="language-csharp">Min()</code> method and see the implementation, first in .NET6 then
+        in .NET7.
+    </div>
+    <pre>
+        <code class="language-csharp line-numbers" data-prismjs-copy="Copy">
+            @DotNet6MinCode
+        </code>
+    </pre>
+    <div class="paragraph">
+        We can see that this is a straight forward algorithm. It gets the enumerator for the source - in our case
+        a list of integers, it loops through them in a while loop saves the smallest value. In the .NET7
+        version things get a little more interesting.
+    </div>
+    <div class="paragraph">
+        The <code class="language-csharp">Min()</code> knows here that we're talking about an integer and it
+        forwards the call to <code class="language-csharp">MinInteger()</code> which will handle the code.
+    </div>
+    <pre>
+        <code class="language-csharp line-numbers" data-prismjs-copy="Copy">
+            @(@"if (source.TryGetSpan(out ReadOnlySpan<T> span))")
+        </code>
+    </pre>
+    <div class="paragraph">
+        First it tries to get a <code class="language-csharp">Span</code> out of the list. If we can get it
+        than we can use the new algorith. If this is not possible then the code falls back to the same
+        function that was used in .NET6.
+    </div>
+    <pre>
+        <code class="language-csharp line-numbers" data-prismjs-copy="Copy">
+            @DotNet7MinCode
+        </code>
+    </pre>
+    <div class="paragraph">
+        This is the core mechanism behind the improved performance. The algorithm utilizes vectorized search
+        techniques when feasible, and leverages hardware acceleration to optimize the process.
+        Our testing has demonstrated that when the conditions are met, such as a span of at least
+        two vectors and hardware acceleration is availabile, the vectorized search approach yields
+        exceptional results.
+    </div>
+
+    <div class="paragraph">
+        More details on vectorization can be found in
+        <a href="https://devblogs.microsoft.com/dotnet/performance_improvements_in_net_7/#vectorization"
+           target="_blank">
+            Stephen`s blog about .NET 7 performance improvements.
+        </a>
+    </div>
+</div>

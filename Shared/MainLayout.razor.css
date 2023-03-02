@@ -82,6 +82,13 @@ main {
         height: 55vw;
         padding: 2vw;
     }
+    
+    .header-background .header-title img{
+        margin-top: 50px;
+        height: 40px;
+    }
+    
+    
 }
 
 @media (min-width: 641px) {

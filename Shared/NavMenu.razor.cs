@@ -1,14 +1,15 @@
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.JSInterop;
 
 namespace PersonalSite.Shared;
 
 public partial class NavMenu
 {
-    [Inject] private IJSRuntime Js { get; set; }
+    [Inject] private NavigationManager NavigationManager { get; set; }
 
-    private async Task ScrollToPage(string elementId)
+    private async Task HandleClick(string elementId)
     {
-        await Js.InvokeVoidAsync("scrollToElement", elementId);
+        NavigationManager.NavigateTo($"/{elementId}");
     }
 }

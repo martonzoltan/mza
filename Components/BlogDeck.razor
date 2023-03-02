@@ -1,0 +1,20 @@
+@using PersonalSite.Extension
+@using PersonalSite.Models
+<div class="card-deck row">
+    @foreach (Blog blog in _blogs)
+    {
+        <div class="card text-white bg-dark col-12 col-lg-4 col-md-6">
+            <div class="card-body">
+                <h5 class="card-title mb-5">@blog.Title</h5>
+                <p class="card-text">
+                    @blog.Description
+                </p>
+                <a href="/Blog/@blog.Id" class="card-link">Read more..</a>
+
+                <p class="card-text">
+                    <small class="text-muted">Created @blog.CreatedDateTime.GetRelativeTime()</small>
+                </p>
+            </div>
+        </div>
+    }
+</div>

@@ -5,13 +5,16 @@
     <div class="collapse navbar-collapse justify-content-center ms-4" id="navbarSupportedContent">
         <ul class="navbar-nav d-flex w-50 justify-content-evenly">
             <li class="nav-item">
-                <a class="nav-link cursor-pointer" @onclick='() => ScrollToPage("about")'>About</a>
+                <a class="nav-link cursor-pointer" @onclick='() => HandleClick("about")'>About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link cursor-pointer" @onclick='() => ScrollToPage("projects")'>Projects</a>
+                <a class="nav-link cursor-pointer" @onclick='() => HandleClick("projects")'>Projects</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link cursor-pointer" @onclick='() => ScrollToPage("contact")'>Contact</a>
+                <a class="nav-link cursor-pointer" @onclick='() => HandleClick("contact")'>Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link cursor-pointer" @onclick='() => NavigationManager.NavigateTo("Blogs")'>Blogs</a>
             </li>
         </ul>
     </div>
