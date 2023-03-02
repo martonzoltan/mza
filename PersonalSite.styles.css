@@ -77,6 +77,10 @@
         font-size: 36px;
     }
 }
+/* /Pages/Blog/LinqPerformanceBenchmark.razor.rz.scp.css */
+.container .paragraph[b-sttvgqpj4u] {
+    margin-top: 2rem;
+}
 /* /Pages/Index.razor.rz.scp.css */
 section[b-bl3rrt3nv1] {
     margin-top: 30px;
@@ -176,6 +180,13 @@ main[b-1vlcskuc8v] {
         height: 55vw;
         padding: 2vw;
     }
+    
+    .header-background .header-title img[b-1vlcskuc8v]{
+        margin-top: 50px;
+        height: 40px;
+    }
+    
+    
 }
 
 @media (min-width: 641px) {
@@ -211,6 +222,7 @@ main[b-1vlcskuc8v] {
 .navbar[b-kujckncdpz] {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 10;
     box-shadow: 0 2px 5px rgb(57 63 72 / 25%);
