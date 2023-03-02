@@ -10,6 +10,6 @@ public partial class NavMenu
 
     private async Task HandleClick(string elementId)
     {
-        NavigationManager.NavigateTo($"/{elementId}");
+        NavigationManager.NavigateTo($"{elementId}");
     }
 }

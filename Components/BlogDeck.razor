@@ -1,5 +1,8 @@
 @using PersonalSite.Extension
 @using PersonalSite.Models
+
+@inject NavigationManager NavigationManager
+
 <div class="card-deck row">
     @foreach (Blog blog in _blogs)
     {
@@ -9,7 +12,10 @@
                 <p class="card-text">
                     @blog.Description
                 </p>
-                <a href="/Blog/@blog.Id" class="card-link">Read more..</a>
+                @{
+                    var blogPath = $"Blog/{blog.Id}";
+                }
+                <a @onclick='() => NavigationManager.NavigateTo(blogPath)' class="card-link cursor-pointer">Read more..</a>
 
                 <p class="card-text">
                     <small class="text-muted">Created @blog.CreatedDateTime.GetRelativeTime()</small>
