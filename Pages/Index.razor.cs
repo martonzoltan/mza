@@ -54,6 +54,17 @@ public partial class Index : ComponentBase
         });
         _projects.Add(new Project
         {
+            Title = "Wedding Photos",
+            Description =
+                "Created a web application where guests can share their photos of a wedding." +
+                "You can create a QR code that points to the site and users can easily share their " +
+                "photos and videos with the newlyweds. Media is stored in Azure Blob Storage and there is an " +
+                "access key which allows a user to remove any content from the site.",
+            Images = new List<string> {"images/wedding.png"},
+            Technologies = new List<Technology> {Technology.VueJs, Technology.Azure, Technology.Css}
+        });
+        _projects.Add(new Project
+        {
             Title = "Email fixer",
             Description =
                 "Small proof of concept application that uses OpenAI Chat GPT integration in Python and VueJS." +
