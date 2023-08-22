@@ -31,7 +31,9 @@
 }
 
 [b-vpouwt66dr] .project-image {
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 [b-vpouwt66dr] .techs-container i {
